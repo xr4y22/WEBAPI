@@ -407,3 +407,4 @@ C:\API\TestAPI\obj\Debug\net8.0\refint\TestAPI.dll
 C:\API\TestAPI\obj\Debug\net8.0\TestAPI.pdb
 C:\API\TestAPI\obj\Debug\net8.0\TestAPI.genruntimeconfig.cache
 C:\API\TestAPI\obj\Debug\net8.0\ref\TestAPI.dll
+C:\API\TestAPI\obj\Debug\net8.0\TestAPI.sourcelink.json

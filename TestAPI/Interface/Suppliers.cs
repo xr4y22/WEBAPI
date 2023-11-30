@@ -105,6 +105,20 @@ namespace TestAPI.Interface
             {
                 using (var context = new SanataContext())
                 {
+                    if (!context.MSuppliers.Where(x => x.Id == id).Any())
+                    {
+                        return data;
+                    }
+
+                    if (!context.MItems.Where(x => x.Id == item.iditem).Any())
+                    {
+                        return data;
+                    }
+
+                    if (context.MSupplierItems.Where(x => x.IdSupplier == id && x.IdItem == item.iditem).Any())
+                    {
+                        return data;
+                    }
                     context.Database.ExecuteSqlRaw("insert into mSupplierItem values('" + id + "','" +  item.iditem + "'," +  item.price  +  ")");
                     data.id = item.iditem;
                  
