@@ -114,9 +114,8 @@ namespace TestAPI.Interface
             {
                 using (var context = new SanataContext())
                 {
-                    context.Database.ExecuteSqlRaw("update mItemLocation set  Stock=" + item.stock + " where IdItem='" + id + "' and IdLocation ='" + id + "'");
-                    // data.id = item.IdItem;
-
+                    context.Database.ExecuteSqlRaw("update mItemLocation set  Stock=" + item.stock + " where IdItem='" + id + "' and IdLocation ='" + item.idlocation + "'");
+                    
                     return "";
                 }
             }

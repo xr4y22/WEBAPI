@@ -16,8 +16,6 @@ namespace TestAPI.Interface
             using (var context = new SanataContext())
             {
                 ResponseModels<MSupplier> resp = new Models.Response.ResponseModels<MSupplier>(paging);
-               // resp.pageSize = paging.pageSize;
-               // resp.pageIndex = paging.pageIndex;
                 var list = context.MSuppliers.Take(resp.pageSize).Skip(resp.pageIndex).ToList();
                 resp.totalCount = list.Count;
                 resp.data = list;
