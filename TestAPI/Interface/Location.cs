@@ -80,22 +80,8 @@ namespace TestAPI.Interface
             {
                 using (var context = new SanataContext())
                 {
-                    if (!context.MLocations.Where(x => x.Id == item.idlocation).Any())
-                    {
-                        return data;
-                    }
-
-                    if (!context.MItems.Where(x => x.Id == id).Any())
-                    {
-                        return data;
-                    }
-
-                    if (context.MItemLocations.Where(x=>x.IdLocation == item.idlocation && x.IdItem == id).Any())
-                    {
-                        return data;
-                    }
-                    context.Database.ExecuteSqlRaw("insert into mItemLocation values('" + id + "','" + item.idlocation + "'," + item.stock + ")");
-                    data.id = item.idlocation;
+                    context.Database.ExecuteSqlRaw("insert into mItemLocation values('" + item.iditem + "','" + id + "'," + item.stock + ")");
+                    data.id = item.iditem;
 
                     return data;
                 }
@@ -114,7 +100,7 @@ namespace TestAPI.Interface
             {
                 using (var context = new SanataContext())
                 {
-                    context.Database.ExecuteSqlRaw("update mItemLocation set  Stock=" + item.stock + " where IdItem='" + id + "' and IdLocation ='" + item.idlocation + "'");
+                    context.Database.ExecuteSqlRaw("update mItemLocation set  Stock=" + item.stock + " where IdItem='" + id + "' and IdLocation ='" + id + "'");
                     // data.id = item.IdItem;
 
                     return "";

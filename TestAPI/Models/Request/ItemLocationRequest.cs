@@ -3,7 +3,7 @@
     public class ItemLocationRequest
     {
         public int? stock { get; set; }
-       
-        public int? idlocation { get; set; }
+        
+        public int? iditem { get; set; }
     }
 }
